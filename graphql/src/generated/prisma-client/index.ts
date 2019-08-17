@@ -427,4 +427,9 @@ export const models: Model[] = [
  * Type Defs
  */
 
-export const prisma: Prisma;
+export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
+  typeDefs,
+  models,
+  endpoint: `https://us1.prisma.sh/public-glimmersnake-310/graphql/dev`
+});
+export const prisma = new Prisma();
