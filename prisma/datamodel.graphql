@@ -1,0 +1,6 @@
+type Teacher {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  name: String!
+  disciplines: String!
+}
