@@ -9,8 +9,18 @@ const resolvers = {
     }
   },
   Mutation: {
-    createTeacher(parent, { name, disciplines }, context: Context) {
-      return context.prisma.createTeacher({ name, disciplines });
+    createTeacher(
+      parent,
+      { name, disciplines, description, university, birthday },
+      context: Context
+    ) {
+      return context.prisma.createTeacher({
+        name,
+        disciplines,
+        description,
+        university,
+        birthday
+      });
     },
     deleteTeacher(parent, { id }, context: Context) {
       return context.prisma.deleteTeacher({ id });

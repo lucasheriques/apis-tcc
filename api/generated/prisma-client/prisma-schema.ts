@@ -56,6 +56,9 @@ type Teacher {
   createdAt: DateTime!
   name: String!
   disciplines: String!
+  description: String!
+  university: String!
+  birthday: String!
 }
 
 type TeacherConnection {
@@ -68,6 +71,9 @@ input TeacherCreateInput {
   id: ID
   name: String!
   disciplines: String!
+  description: String!
+  university: String!
+  birthday: String!
 }
 
 type TeacherEdge {
@@ -84,6 +90,12 @@ enum TeacherOrderByInput {
   name_DESC
   disciplines_ASC
   disciplines_DESC
+  description_ASC
+  description_DESC
+  university_ASC
+  university_DESC
+  birthday_ASC
+  birthday_DESC
 }
 
 type TeacherPreviousValues {
@@ -91,6 +103,9 @@ type TeacherPreviousValues {
   createdAt: DateTime!
   name: String!
   disciplines: String!
+  description: String!
+  university: String!
+  birthday: String!
 }
 
 type TeacherSubscriptionPayload {
@@ -114,11 +129,17 @@ input TeacherSubscriptionWhereInput {
 input TeacherUpdateInput {
   name: String
   disciplines: String
+  description: String
+  university: String
+  birthday: String
 }
 
 input TeacherUpdateManyMutationInput {
   name: String
   disciplines: String
+  description: String
+  university: String
+  birthday: String
 }
 
 input TeacherWhereInput {
@@ -172,6 +193,48 @@ input TeacherWhereInput {
   disciplines_not_starts_with: String
   disciplines_ends_with: String
   disciplines_not_ends_with: String
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_lt: String
+  description_lte: String
+  description_gt: String
+  description_gte: String
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  university: String
+  university_not: String
+  university_in: [String!]
+  university_not_in: [String!]
+  university_lt: String
+  university_lte: String
+  university_gt: String
+  university_gte: String
+  university_contains: String
+  university_not_contains: String
+  university_starts_with: String
+  university_not_starts_with: String
+  university_ends_with: String
+  university_not_ends_with: String
+  birthday: String
+  birthday_not: String
+  birthday_in: [String!]
+  birthday_not_in: [String!]
+  birthday_lt: String
+  birthday_lte: String
+  birthday_gt: String
+  birthday_gte: String
+  birthday_contains: String
+  birthday_not_contains: String
+  birthday_starts_with: String
+  birthday_not_starts_with: String
+  birthday_ends_with: String
+  birthday_not_ends_with: String
   AND: [TeacherWhereInput!]
   OR: [TeacherWhereInput!]
   NOT: [TeacherWhereInput!]

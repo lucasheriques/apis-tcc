@@ -109,7 +109,13 @@ export type TeacherOrderByInput =
   | "name_ASC"
   | "name_DESC"
   | "disciplines_ASC"
-  | "disciplines_DESC";
+  | "disciplines_DESC"
+  | "description_ASC"
+  | "description_DESC"
+  | "university_ASC"
+  | "university_DESC"
+  | "birthday_ASC"
+  | "birthday_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -168,6 +174,48 @@ export interface TeacherWhereInput {
   disciplines_not_starts_with?: Maybe<String>;
   disciplines_ends_with?: Maybe<String>;
   disciplines_not_ends_with?: Maybe<String>;
+  description?: Maybe<String>;
+  description_not?: Maybe<String>;
+  description_in?: Maybe<String[] | String>;
+  description_not_in?: Maybe<String[] | String>;
+  description_lt?: Maybe<String>;
+  description_lte?: Maybe<String>;
+  description_gt?: Maybe<String>;
+  description_gte?: Maybe<String>;
+  description_contains?: Maybe<String>;
+  description_not_contains?: Maybe<String>;
+  description_starts_with?: Maybe<String>;
+  description_not_starts_with?: Maybe<String>;
+  description_ends_with?: Maybe<String>;
+  description_not_ends_with?: Maybe<String>;
+  university?: Maybe<String>;
+  university_not?: Maybe<String>;
+  university_in?: Maybe<String[] | String>;
+  university_not_in?: Maybe<String[] | String>;
+  university_lt?: Maybe<String>;
+  university_lte?: Maybe<String>;
+  university_gt?: Maybe<String>;
+  university_gte?: Maybe<String>;
+  university_contains?: Maybe<String>;
+  university_not_contains?: Maybe<String>;
+  university_starts_with?: Maybe<String>;
+  university_not_starts_with?: Maybe<String>;
+  university_ends_with?: Maybe<String>;
+  university_not_ends_with?: Maybe<String>;
+  birthday?: Maybe<String>;
+  birthday_not?: Maybe<String>;
+  birthday_in?: Maybe<String[] | String>;
+  birthday_not_in?: Maybe<String[] | String>;
+  birthday_lt?: Maybe<String>;
+  birthday_lte?: Maybe<String>;
+  birthday_gt?: Maybe<String>;
+  birthday_gte?: Maybe<String>;
+  birthday_contains?: Maybe<String>;
+  birthday_not_contains?: Maybe<String>;
+  birthday_starts_with?: Maybe<String>;
+  birthday_not_starts_with?: Maybe<String>;
+  birthday_ends_with?: Maybe<String>;
+  birthday_not_ends_with?: Maybe<String>;
   AND?: Maybe<TeacherWhereInput[] | TeacherWhereInput>;
   OR?: Maybe<TeacherWhereInput[] | TeacherWhereInput>;
   NOT?: Maybe<TeacherWhereInput[] | TeacherWhereInput>;
@@ -177,16 +225,25 @@ export interface TeacherCreateInput {
   id?: Maybe<ID_Input>;
   name: String;
   disciplines: String;
+  description: String;
+  university: String;
+  birthday: String;
 }
 
 export interface TeacherUpdateInput {
   name?: Maybe<String>;
   disciplines?: Maybe<String>;
+  description?: Maybe<String>;
+  university?: Maybe<String>;
+  birthday?: Maybe<String>;
 }
 
 export interface TeacherUpdateManyMutationInput {
   name?: Maybe<String>;
   disciplines?: Maybe<String>;
+  description?: Maybe<String>;
+  university?: Maybe<String>;
+  birthday?: Maybe<String>;
 }
 
 export interface TeacherSubscriptionWhereInput {
@@ -209,6 +266,9 @@ export interface Teacher {
   createdAt: DateTimeOutput;
   name: String;
   disciplines: String;
+  description: String;
+  university: String;
+  birthday: String;
 }
 
 export interface TeacherPromise extends Promise<Teacher>, Fragmentable {
@@ -216,6 +276,9 @@ export interface TeacherPromise extends Promise<Teacher>, Fragmentable {
   createdAt: () => Promise<DateTimeOutput>;
   name: () => Promise<String>;
   disciplines: () => Promise<String>;
+  description: () => Promise<String>;
+  university: () => Promise<String>;
+  birthday: () => Promise<String>;
 }
 
 export interface TeacherSubscription
@@ -225,6 +288,9 @@ export interface TeacherSubscription
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   name: () => Promise<AsyncIterator<String>>;
   disciplines: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  university: () => Promise<AsyncIterator<String>>;
+  birthday: () => Promise<AsyncIterator<String>>;
 }
 
 export interface TeacherNullablePromise
@@ -234,6 +300,9 @@ export interface TeacherNullablePromise
   createdAt: () => Promise<DateTimeOutput>;
   name: () => Promise<String>;
   disciplines: () => Promise<String>;
+  description: () => Promise<String>;
+  university: () => Promise<String>;
+  birthday: () => Promise<String>;
 }
 
 export interface TeacherConnection {
@@ -359,6 +428,9 @@ export interface TeacherPreviousValues {
   createdAt: DateTimeOutput;
   name: String;
   disciplines: String;
+  description: String;
+  university: String;
+  birthday: String;
 }
 
 export interface TeacherPreviousValuesPromise
@@ -368,6 +440,9 @@ export interface TeacherPreviousValuesPromise
   createdAt: () => Promise<DateTimeOutput>;
   name: () => Promise<String>;
   disciplines: () => Promise<String>;
+  description: () => Promise<String>;
+  university: () => Promise<String>;
+  birthday: () => Promise<String>;
 }
 
 export interface TeacherPreviousValuesSubscription
@@ -377,6 +452,9 @@ export interface TeacherPreviousValuesSubscription
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   name: () => Promise<AsyncIterator<String>>;
   disciplines: () => Promise<AsyncIterator<String>>;
+  description: () => Promise<AsyncIterator<String>>;
+  university: () => Promise<AsyncIterator<String>>;
+  birthday: () => Promise<AsyncIterator<String>>;
 }
 
 /*
@@ -430,6 +508,6 @@ export const models: Model[] = [
 export const Prisma = makePrismaClientClass<ClientConstructor<Prisma>>({
   typeDefs,
   models,
-  endpoint: `https://us1.prisma.sh/public-glimmersnake-310/graphql/dev`
+  endpoint: `https://us1.prisma.sh/lucas-henrique-26b9e0/tcc-graphql/dev`
 });
 export const prisma = new Prisma();

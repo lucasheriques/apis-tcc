@@ -3,4 +3,7 @@ type Teacher {
   createdAt: DateTime! @createdAt
   name: String!
   disciplines: String!
+  description: String!
+  university: String!
+  birthday: String!
 }
