@@ -1,11 +1,25 @@
 type Query {
   teachers: [Teacher!]!
+  teacher(id: ID!): Teacher!
 }
 
 type Mutation {
-  createTeacher(name: String!, disciplines: String): Teacher
+  createTeacher(
+    name: String!
+    disciplines: String
+    description: String
+    university: String
+    birthday: String
+  ): Teacher
   deleteTeacher(id: ID!): Teacher
-  updateTeacher(id: ID!, name: String, disciplines: String): Teacher
+  updateTeacher(
+    id: ID!
+    name: String
+    disciplines: String
+    description: String
+    university: String
+    birthday: String
+  ): Teacher
 }
 
 type Teacher {

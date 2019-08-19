@@ -6,6 +6,9 @@ const resolvers = {
   Query: {
     teachers(parent, args, context: Context) {
       return context.prisma.teachers();
+    },
+    teacher(parent, { id }, context: Context) {
+      return context.prisma.teacher({ id: id });
     }
   },
   Mutation: {
