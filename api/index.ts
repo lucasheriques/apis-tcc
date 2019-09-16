@@ -2,13 +2,40 @@ import { GraphQLServer } from "graphql-yoga";
 import { prisma } from "./generated/prisma-client";
 import { Context } from "./utils";
 
+let teachersDetails = {
+  "1": {
+    id: "1",
+    name: "Lesandro Ponciano",
+    disciplines: "Interação Humano Computador",
+    description: "Ótimo professor e orientador!",
+    university: "PUC Minas",
+    birthday: "22/01/1985"
+  },
+  "2": {
+    id: "2",
+    name: "Maria Augusta",
+    disciplines: "Interação Humano Computador",
+    description: "Ótimo professor e orientador!",
+    university: "PUC Minas",
+    birthday: "22/01/1985"
+  },
+  "3": {
+    id: "3",
+    name: "Marcelo Werneck",
+    disciplines: "Interação Humano Computador",
+    description: "Ótimo professor e orientador!",
+    university: "PUC Minas",
+    birthday: "22/01/1985"
+  }
+};
+
 const resolvers = {
   Query: {
     teachers(parent, args, context: Context) {
-      return context.prisma.teachers();
+      return Object.values(teachersDetails);
     },
     teacher(parent, { id }, context: Context) {
-      return context.prisma.teacher({ id: id });
+      return teachersDetails[id];
     }
   },
   Mutation: {
