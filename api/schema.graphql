@@ -1,4 +1,5 @@
 type Query {
+  hugeTeachers: [Teacher!]!
   teachers: [Teacher!]!
   teacher(id: ID!): Teacher!
 }
